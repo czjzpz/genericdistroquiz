@@ -1,0 +1,113 @@
+[
+   {
+     "0": "Debian",
+     "1": true,
+     "2": false,
+     "3": false,
+     "4": false,
+     "5": false,
+     "6": false,
+     "7": true
+   },
+   {
+     "0": "Ubuntu",
+     "1": true,
+     "2": true,
+     "3": false,
+     "4": false,
+     "5": true,
+     "6": false,
+     "7": true
+   },
+   {
+     "0": "Mint",
+     "1": true,
+     "2": true,
+     "3": false,
+     "4": false,
+     "5": false,
+     "6": false,
+     "7": true
+   },
+   {
+     "0": "Arch",
+     "1": true,
+     "2": false,
+     "3": true,
+     "4": false,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "Gentoo",
+     "1": true,
+     "2": false,
+     "3": true,
+     "4": false,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "Parabola",
+     "1": true,
+     "2": false,
+     "3": true,
+     "4": true,
+     "5": false,
+     "6": true,
+     "7": false
+   },
+   {
+     "0": "Fedora",
+     "1": true,
+     "2": false,
+     "3": false,
+     "4": true,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "openSUSE",
+     "1": true,
+     "2": false,
+     "3": false,
+     "4": true,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "Void",
+     "1": true,
+     "2": false,
+     "3": true,
+     "4": true,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "Slackware",
+     "1": true,
+     "2": false,
+     "3": false,
+     "4": false,
+     "5": false,
+     "6": false,
+     "7": false
+   },
+   {
+     "0": "Alpine",
+     "1": true,
+     "2": false,
+     "3": false,
+     "4": true,
+     "5": false,
+     "6": false,
+     "7": false
+   }
+ ]
+ 
