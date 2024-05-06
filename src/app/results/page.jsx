@@ -56,7 +56,7 @@ export default function Results() {
           {props.name}
         </Link>
         <div className="flex justify-center items-center">
-        <img src={props.img} alt="distro logo" class="max-h-[15rem] max-w-[10rem] md:max-h-[5rem] md:max-w=[5rem] lg:max-h-[10rem] lg:max-w-[10rem]"/>
+        <img src={props.img} alt="distro logo" className="max-h-[15rem] max-w-[10rem] md:max-h-[5rem] md:max-w=[5rem] lg:max-h-[10rem] lg:max-w-[10rem]"/>
         </div>
         <p className="m-5 text-lg text-center">
           {props.quote}
