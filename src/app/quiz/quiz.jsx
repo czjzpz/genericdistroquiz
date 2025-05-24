@@ -62,41 +62,34 @@ export default function Quiz() {
   
       // sets the array
       let countSimilar = [];
+      const userAnswers = AnswersRef.current;
+      const questionKeys = ["customization", "lts", "rollingRelease", "securityPrivacy", "preinstalledTools", "libre", "debianBased", "easyToUse"];
   
       // for every distro, add the answers to the countSimilar array
       for (let i = 0; i < distros.length; i++) {
-  
         let chosen = distros[i];
-        let answers = AnswersRef.current;
-        answers[0] = chosen[0];
         let added = 0;
-        console.log(chosen);
-        console.log(answers);
   
         // for every distro, get the amount of similar answers
-        for (let i = 0; i < Object.keys(chosen).length; i++) {
-          
-          if (chosen[i] == answers[i]) {
-  
-            added++;
-            console.log(added);
-            console.log(chosen[i]);
-            console.log(answers[i]);
-  
-          } 
-  
+        for (const key of questionKeys) {
+          if (chosen.hasOwnProperty(key) && userAnswers.hasOwnProperty(key)) {
+            if (chosen[key] === userAnswers[key]) {
+              added++;
+            }
+          }
         }
   
         // add the distro to the countSimilar object
-        countSimilar[i] = {name: chosen[0], count: added};
+        countSimilar[i] = {name: chosen.name, count: added};
       }
   
       // send the data to local storage
-      const distroSelect = countSimilar.sort((a, b) => a.count - b.count);
-      localStorage.setItem("distro", distroSelect[10].name);
-      localStorage.setItem("distro1", distroSelect[9].name);
-      localStorage.setItem("distro2", distroSelect[8].name);
-      localStorage.setItem("answers", JSON.stringify(AnswersRef.current));
+      const distroSelect = countSimilar.sort((a, b) => b.count - a.count); // Sort descending
+      
+      localStorage.setItem("distro", distroSelect.length > 0 ? distroSelect[0].name : "");
+      localStorage.setItem("distro1", distroSelect.length > 1 ? distroSelect[1].name : "");
+      localStorage.setItem("distro2", distroSelect.length > 2 ? distroSelect[2].name : "");
+      localStorage.setItem("answers", JSON.stringify(userAnswers));
   
     }
       
@@ -129,49 +122,49 @@ export default function Quiz() {
           "question": "Does the distro need to offer extensive customization options?",
           "yes": "Yes",
           "no": "No",
-          "value": "1"
+          "value": "customization"
         },
         {
           "question": "Is long-term support (LTS) a crucial factor for your intended usage?",
           "yes": "Yes",
           "no": "No",
-          "value": "2"
+          "value": "lts"
         },
         {
           "question": "Do you prefer a rolling release model for continuous software updates?",
           "yes": "Yes",
           "no": "No",
-          "value": "3"
+          "value": "rollingRelease"
         },
         {
           "question": "Are you seeking a distro that prioritizes security and privacy features?",
           "yes": "Yes",
           "no": "No",
-          "value": "4"
+          "value": "securityPrivacy"
         },
         {
           "question": "Do you require specific software or development tools to be pre-installed?",
           "yes": "Yes",
           "no": "No",
-          "value": "5"
+          "value": "preinstalledTools"
         },
         {
           "question": "Do you require the distro to be 'libre'?",
           "yes": "Yes",
           "no": "No",
-          "value": "6"
+          "value": "libre"
         },
         {
           "question": "Would you like a distro based on Debian?",
           "yes": "Yes",
           "no": "No",
-          "value": "7"
+          "value": "debianBased"
         },
         {
           "question": "Does the distro need to be easy to use?",
           "yes": "Yes",
           "no": "No",
-          "value": "8"
+          "value": "easyToUse"
         }
       ];
   

@@ -1,5 +1,5 @@
 // import used modules
-import distros from './distros.json';
+import distros from '../quiz/distros.json';
 import questions from './questions.json';
 import Link from 'next/link';
 
@@ -10,11 +10,11 @@ export default function Results() {
     let distroName1 = localStorage.getItem("distro1") || "";
     let distroName2 = localStorage.getItem("distro2") || "";
     // get the answer names from JSON file (questions.json)
-    let answers = JSON.parse(localStorage.getItem("answers")) || "";
+    let answers = JSON.parse(localStorage.getItem("answers")) || {}; // Ensure answers is an object
     // from those distroNames, the distros are found from the distros JSON file
-    let distroChoice0 = distros.filter((obj) => obj.name == distroName);
-    let distroChoice1 = distros.filter((obj) => obj.name == distroName1);
-    let distroChoice2 = distros.filter((obj) => obj.name == distroName2);
+    let distroObject0 = distros.find((obj) => obj.name === distroName);
+    let distroObject1 = distros.find((obj) => obj.name === distroName1);
+    let distroObject2 = distros.find((obj) => obj.name === distroName2);
   
     // Try Again Button
     function AgainBlock(props) {
@@ -54,33 +54,33 @@ export default function Results() {
             {props.name}
           </Link>
           <div className="flex justify-center items-center">
-          <img src={props.img} alt="distro logo" className="max-h-[15rem] max-w-[10rem] md:max-h-[5rem] md:max-w=[5rem] lg:max-h-[10rem] lg:max-w-[10rem]"/>
+          <img src={props.img} alt="distro logo" className="max-h-[15rem] max-w-[10rem] md:max-h-[5rem] md:max-w-[5rem] lg:max-h-[10rem] lg:max-w-[10rem]"/>
           </div>
           <p className="m-5 text-lg text-center">
             {props.quote}
           </p>
-          <div className="grid grid-cols-3 grid-rows-1 p-1 w-[80%] md:w-[30%] justify-center items-center">
+          <div className="grid grid-cols-3 grid-rows-1 p-1 w-[90%] md:w-[70%] justify-center items-center">
             <div className="row-start-1 col-start-1 mt-2 flex flex-col justify-center items-end h-full w-full">
             {/* For every question, put it out */}
-            {questions.map(question => (
-              <div className="text-sm text-nowrap">{question}</div>
+            {questions.map((question, index) => (
+              <div key={index} className="text-sm">{question}</div>
             ))}
             </div>
             <div className="text-sm row-start-1 col-start-2 flex flex-col justify-center items-center">
             Your choices:
             <div className="flex flex-col">
-            {/* For every answer, put it out */}
-            {Object.values(answers).map(answer => (
-              <bold>{ifTrue(answer)}</bold>
+            {/* For every answer, put it out based on the order of keys in userAnswers */}
+            {props.userAnswers && Object.keys(props.userAnswers).map(key => (
+              <bold key={key}>{ifTrue(props.userAnswers[key])}</bold>
             ))}
             </div>
             </div>
             <div className="text-sm row-start-1 col-start-3 flex flex-col justify-center items-center">
             Distro choices:
             <div className="flex flex-col">
-            {/* For every answer, put it out */}
-            {Object.values(props.choice).map(answer => (
-              <bold>{ifTrue(answer)}</bold>
+            {/* For every answer, put it out based on the order of keys in userAnswers, accessing value from props.choice */}
+            {props.userAnswers && Object.keys(props.userAnswers).map(key => (
+              <bold key={key}>{ifTrue(props.choice[key])}</bold>
             ))}
             </div>
             </div>
@@ -94,9 +94,9 @@ export default function Results() {
       return (
         <div className="flex justify-center items-center h-full w-full overflow-scroll"> 
           <div className="flex md:flex-col flex-col justify-start items-center h-full w-full">
-          <DistroBlock name={distroChoice0[0].name} img={distroChoice0[0].image} quote={distroChoice0[0].quote} link={distroChoice0[0].link} choice={distroChoice0[0]}/>
-          <DistroBlock name={distroChoice1[0].name} img={distroChoice1[0].image} quote={distroChoice1[0].quote} link={distroChoice1[0].link} choice={distroChoice1[0]}/>
-          <DistroBlock name={distroChoice2[0].name} img={distroChoice2[0].image} quote={distroChoice2[0].quote} link={distroChoice2[0].link} choice={distroChoice2[0]}/>
+          {distroObject0 && <DistroBlock name={distroObject0.name} img={distroObject0.image} quote={distroObject0.quote} link={distroObject0.link} choice={distroObject0} userAnswers={answers}/>}
+          {distroObject1 && <DistroBlock name={distroObject1.name} img={distroObject1.image} quote={distroObject1.quote} link={distroObject1.link} choice={distroObject1} userAnswers={answers}/>}
+          {distroObject2 && <DistroBlock name={distroObject2.name} img={distroObject2.image} quote={distroObject2.quote} link={distroObject2.link} choice={distroObject2} userAnswers={answers}/>}
           <div className="flex justify-center items-center">
             <AgainBlock/>
           </div>
