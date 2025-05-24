@@ -21,7 +21,7 @@ export default function Results() {
     
       return (
     
-        <Link href={"/quiz"} className="m-6 p-3 px-6 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg shadow-md flex justify-center items-center">
+        <Link href={"/quiz"} className="m-6 p-3 px-6 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 flex justify-center items-center">
           Try Again
         </Link>
     
@@ -48,7 +48,7 @@ export default function Results() {
       return (
     
         <div className="m-4 md:m-6 p-6 bg-slate-100 rounded-xl shadow-lg w-full max-w-md flex flex-col items-center">
-          <Link href={props.link} className="text-2xl md:text-3xl font-bold text-sky-600 hover:text-sky-700 mb-3 text-center">
+          <Link href={props.link} className="font-heading text-2xl md:text-3xl font-bold text-sky-600 hover:text-sky-700 mb-3 text-center">
             {props.name}
           </Link>
           <img src={props.img} alt={`${props.name} logo`} className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 rounded-md"/>
@@ -58,7 +58,7 @@ export default function Results() {
           <div className="w-full bg-white p-4 rounded-lg shadow">
             <div className="flex justify-between">
               <div className="w-1/2 pr-2">
-                <h4 className="font-semibold text-gray-600 mb-2 text-center">Your Choices</h4>
+                <h4 className="font-heading font-semibold text-gray-600 mb-2 text-center">Your Choices</h4>
                 {questions.map((question, index) => (
                   <div key={index} className="flex justify-between items-center mb-1">
                     <span className="text-sm text-gray-600">{question}</span>
@@ -69,7 +69,7 @@ export default function Results() {
                 ))}
               </div>
               <div className="w-1/2 pl-2 border-l border-gray-300">
-                <h4 className="font-semibold text-gray-600 mb-2 text-center">Distro Choices</h4>
+                <h4 className="font-heading font-semibold text-gray-600 mb-2 text-center">Distro Choices</h4>
                 {questions.map((question, index) => (
                   <div key={index} className="flex justify-between items-center mb-1">
                     <span className="text-sm text-gray-600">{question}</span>

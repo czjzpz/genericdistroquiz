@@ -15,7 +15,7 @@ export default function Quiz() {
       return (
     
         <div className="m-6 md:m-8 p-6 md:p-8 h-auto w-3/4 bg-slate-100 rounded-xl shadow-lg flex justify-center items-center">
-          <div className="text-2xl md:text-4xl font-semibold text-gray-700 text-center">
+          <div className="font-heading text-2xl md:text-4xl font-semibold text-gray-700 text-center">
             {props.question}
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with yest
-        <button onClick={() => nextQuestion(true, props.value)} className="m-1 h-full w-2/5 bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:ring-sky-300 rounded-lg flex justify-center items-center">
+        <button onClick={() => nextQuestion(true, props.value)} className="m-1 h-full w-2/5 bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 rounded-lg flex justify-center items-center">
           <div className="text-lg font-medium text-white">
             {props.text}
           </div>
@@ -46,7 +46,7 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with no
-        <button onClick={() => nextQuestion(false, props.value)} className="m-1 h-full w-2/5 bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 rounded-lg flex justify-center items-center">
+        <button onClick={() => nextQuestion(false, props.value)} className="m-1 h-full w-2/5 bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 rounded-lg flex justify-center items-center">
           <div className="text-lg font-medium text-white">
           {props.text}
           </div>
