@@ -1,17 +1,11 @@
 import "./globals.css";
 import Link from 'next/link';
-import { Roboto, Montserrat } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 
-const roboto = Roboto({
+const nunito = Nunito({
   subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-roboto',
-});
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-montserrat',
+  weight: ['300', '400', '700'], // Light, Regular, Bold
+  variable: '--font-nunito',
 });
 
 export const metadata = {
@@ -25,12 +19,12 @@ export default function RootLayout({ children }) {
   let distroName;
 
   return (
-    <html lang="en" className={`${roboto.variable} ${montserrat.variable}`}>
-      <body className="bg-slate-50 font-sans">
+    <html lang="en" className={`${nunito.variable}`}>
+      <body className="bg-soft-bg font-sans">
         <main className="min-h-screen flex flex-col items-center w-full">
           <div className="w-full max-w-4xl flex flex-col items-center p-4 md:p-6">
             <header className="w-full flex justify-center items-center py-4 md:py-6">
-              <Link href="/" className="font-heading font-bold text-3xl text-gray-700 hover:text-sky-600 m-3">
+              <Link href="/" className="font-bold text-3xl text-text-main hover:text-accent-blue-text m-3">
                 Generic Distro Quiz
               </Link>
             </header>

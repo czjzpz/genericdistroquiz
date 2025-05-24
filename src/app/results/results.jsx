@@ -21,8 +21,8 @@ export default function Results() {
     
       return (
     
-        <Link href={"/quiz"} className="m-6 p-3 px-6 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 flex justify-center items-center">
-          Try Again
+        <Link href={"/quiz"} className="m-6 p-3 px-8 bg-accent-orange hover:bg-accent-orange-hover text-white font-bold rounded-full shadow-none text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-orange flex justify-center items-center">
+          try again
         </Link>
     
       );
@@ -37,50 +37,41 @@ export default function Results() {
   
         switch (answer) {
           case true:
-            return "✅";
+            return "✅"; // green check emoji
           case false:
-            return "❌";
+            return "❌"; // red x emoji
         };
   
   
       }
+      // 'questions' is imported and is now an object of categories
+      const categorizedQuestions = questions; 
   
       return (
     
-        <div className="m-4 md:m-6 p-6 bg-slate-100 rounded-xl shadow-lg w-full max-w-md flex flex-col items-center">
-          <Link href={props.link} className="font-heading text-2xl md:text-3xl font-bold text-sky-600 hover:text-sky-700 mb-3 text-center">
+        <div className="bg-card-bg rounded-2xl border border-subtle-border p-4 md:p-6 m-4 md:m-6 shadow-none w-full max-w-md flex flex-col items-center">
+          <Link href={props.link} className="text-2xl md:text-3xl font-bold text-accent-blue-text hover:text-accent-blue mb-3 text-center block">
             {props.name}
           </Link>
-          <img src={props.img} alt={`${props.name} logo`} className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 rounded-md"/>
-          <p className="text-gray-700 italic mb-4 text-center">
+          <img src={props.img} alt={`${props.name} logo`} className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-4 rounded-lg border-2 border-subtle-border"/>
+          <p className="text-text-main italic mb-4 text-center">
             {props.quote}
           </p>
-          <div className="w-full bg-white p-4 rounded-lg shadow">
-            <div className="flex justify-between">
-              <div className="w-1/2 pr-2">
-                <h4 className="font-heading font-semibold text-gray-600 mb-2 text-center">Your Choices</h4>
-                {questions.map((question, index) => (
-                  <div key={index} className="flex justify-between items-center mb-1">
-                    <span className="text-sm text-gray-600">{question}</span>
-                    <span className="text-lg">
-                      {props.userAnswers && ifTrue(props.userAnswers[Object.keys(props.userAnswers)[index]])}
-                    </span>
+          
+          {Object.entries(categorizedQuestions).map(([category, questionsInCategory]) => (
+            <div key={category} className="my-4 p-3 bg-amber-50 rounded-lg w-full">
+              <h3 className="text-lg font-bold text-accent-blue-text mb-2 text-center">{category}</h3>
+              {Object.entries(questionsInCategory).map(([key, label]) => (
+                <div key={key} className="flex justify-between items-center text-sm mb-1">
+                  <span className="text-text-main w-3/5">{label}</span>
+                  <div className="flex items-center w-2/5 justify-end">
+                    <span className="mr-3 text-lg">{ifTrue(props.userAnswers[key])}</span> {/* Your choice */}
+                    <span className="text-lg">{ifTrue(props.choice[key])}</span> {/* Distro choice */}
                   </div>
-                ))}
-              </div>
-              <div className="w-1/2 pl-2 border-l border-gray-300">
-                <h4 className="font-heading font-semibold text-gray-600 mb-2 text-center">Distro Choices</h4>
-                {questions.map((question, index) => (
-                  <div key={index} className="flex justify-between items-center mb-1">
-                    <span className="text-sm text-gray-600">{question}</span>
-                    <span className="text-lg">
-                      {props.choice && ifTrue(props.choice[Object.keys(props.userAnswers)[index]])}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ))}
         </div>
     
       );
@@ -88,13 +79,13 @@ export default function Results() {
     }
   
       return (
-        <div className="flex flex-col items-center h-full w-full overflow-y-auto p-4 md:p-6"> 
-          <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center items-center md:items-start w-full">
+        <div className="flex flex-col items-center h-full w-full overflow-y-auto p-4 md:p-6"> {/* bg-soft-bg is inherited from body */}
+          <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center items-stretch md:items-start w-full"> {/* items-stretch for equal height cards in a row */}
           {distroObject0 && <DistroBlock name={distroObject0.name} img={distroObject0.image} quote={distroObject0.quote} link={distroObject0.link} choice={distroObject0} userAnswers={answers}/>}
           {distroObject1 && <DistroBlock name={distroObject1.name} img={distroObject1.image} quote={distroObject1.quote} link={distroObject1.link} choice={distroObject1} userAnswers={answers}/>}
           {distroObject2 && <DistroBlock name={distroObject2.name} img={distroObject2.image} quote={distroObject2.quote} link={distroObject2.link} choice={distroObject2} userAnswers={answers}/>}
           </div>
-          <div className="flex justify-center items-center mt-4">
+          <div className="flex justify-center items-center mt-6 mb-6">
             <AgainBlock/>
           </div>
         </div>

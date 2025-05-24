@@ -14,8 +14,8 @@ export default function Quiz() {
   
       return (
     
-        <div className="m-6 md:m-8 p-6 md:p-8 h-auto w-3/4 bg-slate-100 rounded-xl shadow-lg flex justify-center items-center">
-          <div className="font-heading text-2xl md:text-4xl font-semibold text-gray-700 text-center">
+        <div className="bg-card-bg rounded-2xl border border-subtle-border p-6 md:p-8 m-6 md:m-8 shadow-none h-auto w-3/4 flex justify-center items-center">
+          <div className="text-xl md:text-3xl font-bold text-text-main text-center">
             {props.question}
           </div>
         </div>
@@ -30,10 +30,8 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with yest
-        <button onClick={() => nextQuestion(true, props.value)} className="m-1 h-full w-2/5 bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 rounded-lg flex justify-center items-center">
-          <div className="text-lg font-medium text-white">
-            {props.text}
-          </div>
+        <button onClick={() => nextQuestion(true, props.value)} className="rounded-full py-2 px-6 md:py-3 md:px-8 m-1 text-lg font-bold shadow-none bg-accent-orange hover:bg-accent-orange-hover text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-orange flex justify-center items-center">
+          {props.text}
         </button>
     
       );
@@ -46,10 +44,8 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with no
-        <button onClick={() => nextQuestion(false, props.value)} className="m-1 h-full w-2/5 bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 rounded-lg flex justify-center items-center">
-          <div className="text-lg font-medium text-white">
+        <button onClick={() => nextQuestion(false, props.value)} className="rounded-full py-2 px-6 md:py-3 md:px-8 m-1 text-lg font-bold shadow-none bg-neutral-400 hover:bg-neutral-500 text-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 flex justify-center items-center">
           {props.text}
-          </div>
         </button>
     
       );
@@ -97,12 +93,12 @@ export default function Quiz() {
       function nextQuestion(cond, value) {
         
         // continuously adds new questions until final one where it getDistros()s and goes to results
-        if (IRef.current < 7) {
+        if (IRef.current < 12) { // 13 questions total, so index goes from 0 to 12
   
           SetAnswers({...answers, [value]: cond});
           SetI(i + 1);
   
-        } else if (IRef.current == 7) {
+        } else if (IRef.current == 12) { // Last question
   
           SetAnswers({...answers, [questions[i].value]: cond});
           getDistros();
@@ -119,60 +115,90 @@ export default function Quiz() {
       // questions
       const questions = [
         {
-          "question": "Does the distro need to offer extensive customization options?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "does the distro need to offer extensive customization options?",
+          "yes": "yes",
+          "no": "no",
           "value": "customization"
         },
         {
-          "question": "Is long-term support (LTS) a crucial factor for your intended usage?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "is long-term support (lts) a crucial factor for your intended usage?",
+          "yes": "yes",
+          "no": "no",
           "value": "lts"
         },
         {
-          "question": "Do you prefer a rolling release model for continuous software updates?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "do you prefer a rolling release model for continuous software updates?",
+          "yes": "yes",
+          "no": "no",
           "value": "rollingRelease"
         },
         {
-          "question": "Are you seeking a distro that prioritizes security and privacy features?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "are you seeking a distro that prioritizes security and privacy features?",
+          "yes": "yes",
+          "no": "no",
           "value": "securityPrivacy"
         },
         {
-          "question": "Do you require specific software or development tools to be pre-installed?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "do you require specific software or development tools to be pre-installed?",
+          "yes": "yes",
+          "no": "no",
           "value": "preinstalledTools"
         },
         {
-          "question": "Do you require the distro to be 'libre'?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "do you require the distro to be 'libre'?",
+          "yes": "yes",
+          "no": "no",
           "value": "libre"
         },
         {
-          "question": "Would you like a distro based on Debian?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "would you like a distro based on debian?",
+          "yes": "yes",
+          "no": "no",
           "value": "debianBased"
         },
         {
-          "question": "Does the distro need to be easy to use?",
-          "yes": "Yes",
-          "no": "No",
+          "question": "does the distro need to be easy to use?",
+          "yes": "yes",
+          "no": "no",
           "value": "easyToUse"
+        },
+        {
+          "question": "will gaming be a primary use for this computer?",
+          "yes": "yes",
+          "no": "no",
+          "value": "isForGaming"
+        },
+        {
+          "question": "will software development be a primary use?",
+          "yes": "yes",
+          "no": "no",
+          "value": "isForDevelopment"
+        },
+        {
+          "question": "will creative tasks like video/photo editing or graphic design be a primary use?",
+          "yes": "yes",
+          "no": "no",
+          "value": "isForCreativeWork"
+        },
+        {
+          "question": "do you prefer a modern-looking desktop with all the latest features?",
+          "yes": "yes",
+          "no": "no",
+          "value": "prefersModernDE"
+        },
+        {
+          "question": "do you prefer a simpler, faster desktop that uses fewer resources?",
+          "yes": "yes",
+          "no": "no",
+          "value": "prefersLightweightDE"
         }
       ];
   
       // main ui
       return (
-        <div className="flex flex-col justify-center items-center h-full w-full p-4"> 
+        <div className="flex flex-col justify-center items-center h-full w-full p-4"> {/* bg-soft-bg is inherited from body */}
           <QuestionBlock question={questions[i].question}/>
-          <div className="h-12 md:h-14 w-3/4 flex justify-around items-center mt-4">
+          <div className="w-3/4 flex flex-col md:flex-row justify-around items-center mt-6 md:mt-8 space-y-4 md:space-y-0 md:space-x-4">
             <YesBlock text={questions[i].yes} value={questions[i].value}/>
             <NoBlock text={questions[i].no} value={questions[i].value}/>
           </div>

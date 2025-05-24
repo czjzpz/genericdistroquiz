@@ -1,6 +1,6 @@
 [
   {
-    "name": "Debian",
+    "name": "debian",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -10,11 +10,16 @@
     "debianBased": true,
     "easyToUse": false,
     "image": "/debian.png",
-    "quote": "Debian is a stable and reliable Linux distribution.",
-    "link": "https://www.debian.org/"
+    "quote": "debian is a stable and reliable linux distribution.",
+    "link": "https://www.debian.org/",
+    "isForGaming": false,
+    "isForDevelopment": true,
+    "isForCreativeWork": false,
+    "prefersModernDE": true,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Ubuntu",
+    "name": "ubuntu",
     "customization": true,
     "lts": true,
     "rollingRelease": false,
@@ -24,11 +29,16 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/ubuntu.png",
-    "quote": "Ubuntu is a complete Linux operating system, freely available with both community and professional support.",
-    "link": "https://ubuntu.com/"
+    "quote": "ubuntu is a complete linux operating system, freely available with both community and professional support.",
+    "link": "https://ubuntu.com/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "Mint",
+    "name": "mint",
     "customization": true,
     "lts": true,
     "rollingRelease": false,
@@ -38,11 +48,16 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/mint.png",
-    "quote": "Linux Mint is an elegant, easy to use, up to date and comfortable desktop operating system.",
-    "link": "https://linuxmint.com/"
+    "quote": "linux mint is an elegant, easy to use, up to date and comfortable desktop operating system.",
+    "link": "https://linuxmint.com/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "Arch",
+    "name": "arch",
     "customization": true,
     "lts": false,
     "rollingRelease": true,
@@ -52,11 +67,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/arch.png",
-    "quote": "Arch Linux is a lightweight and flexible Linux distribution that tries to Keep It Simple.",
-    "link": "https://archlinux.org/"
+    "quote": "arch linux is a lightweight and flexible linux distribution that tries to keep it simple.",
+    "link": "https://archlinux.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Gentoo",
+    "name": "gentoo",
     "customization": true,
     "lts": false,
     "rollingRelease": true,
@@ -66,11 +86,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/gentoo.png",
-    "quote": "Gentoo is a highly flexible, source-based Linux distribution.",
-    "link": "https://www.gentoo.org/"
+    "quote": "gentoo is a highly flexible, source-based linux distribution.",
+    "link": "https://www.gentoo.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Parabola",
+    "name": "parabola",
     "customization": true,
     "lts": false,
     "rollingRelease": true,
@@ -80,11 +105,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/parabola.png",
-    "quote": "Parabola GNU/Linux-libre is a fully free software distribution based on Arch Linux.",
-    "link": "https://www.parabola.nu/"
+    "quote": "parabola gnu/linux-libre is a fully free software distribution based on arch linux.",
+    "link": "https://www.parabola.nu/",
+    "isForGaming": false,
+    "isForDevelopment": true,
+    "isForCreativeWork": false,
+    "prefersModernDE": true,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Fedora",
+    "name": "fedora",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -94,11 +124,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/fedora.png",
-    "quote": "Fedora is a Linux distribution developed by the community-supported Fedora Project.",
-    "link": "https://getfedora.org/"
+    "quote": "fedora is a linux distribution developed by the community-supported fedora project.",
+    "link": "https://getfedora.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "openSUSE",
+    "name": "opensuse",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -108,11 +143,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/opensuse.png",
-    "quote": "openSUSE is a community program sponsored by SUSE Linux and other companies.",
-    "link": "https://www.opensuse.org/"
+    "quote": "opensuse is a community program sponsored by suse linux and other companies.",
+    "link": "https://www.opensuse.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "Void",
+    "name": "void",
     "customization": true,
     "lts": false,
     "rollingRelease": true,
@@ -122,11 +162,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/void.png",
-    "quote": "Void is a general purpose operating system, based on the monolithic Linux kernel.",
-    "link": "https://voidlinux.org/"
+    "quote": "void is a general purpose operating system, based on the monolithic linux kernel.",
+    "link": "https://voidlinux.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Slackware",
+    "name": "slackware",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -136,11 +181,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/slackware.png",
-    "quote": "Slackware is an advanced Linux operating system, designed with the twin goals of ease of use and stability as top priorities.",
-    "link": "http://www.slackware.com/"
+    "quote": "slackware is an advanced linux operating system, designed with the twin goals of ease of use and stability as top priorities.",
+    "link": "http://www.slackware.com/",
+    "isForGaming": false,
+    "isForDevelopment": true,
+    "isForCreativeWork": false,
+    "prefersModernDE": false,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Alpine",
+    "name": "alpine",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -150,11 +200,16 @@
     "debianBased": false,
     "easyToUse": false,
     "image": "/alpine.png",
-    "quote": "Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.",
-    "link": "https://alpinelinux.org/"
+    "quote": "alpine linux is a security-oriented, lightweight linux distribution based on musl libc and busybox.",
+    "link": "https://alpinelinux.org/",
+    "isForGaming": false,
+    "isForDevelopment": false,
+    "isForCreativeWork": false,
+    "prefersModernDE": false,
+    "prefersLightweightDE": true
   },
   {
-    "name": "Manjaro",
+    "name": "manjaro",
     "customization": true,
     "lts": false,
     "rollingRelease": true,
@@ -164,11 +219,16 @@
     "debianBased": false,
     "easyToUse": true,
     "image": "/manjaro.png",
-    "quote": "Manjaro is a professionally made Linux operating system that is based on Arch Linux.",
-    "link": "https://manjaro.org/"
+    "quote": "manjaro is a professionally made linux operating system that is based on arch linux.",
+    "link": "https://manjaro.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "Pop!_OS",
+    "name": "pop!_os",
     "customization": true,
     "lts": true,
     "rollingRelease": false,
@@ -178,11 +238,16 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/pop_os.png",
-    "quote": "Pop!_OS is an operating system for STEM and creative professionals who use their computer as a tool to discover and create.",
-    "link": "https://pop.system76.com/"
+    "quote": "pop!_os is an operating system for stem and creative professionals who use their computer as a tool to discover and create.",
+    "link": "https://pop.system76.com/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "Zorin OS",
+    "name": "zorin os",
     "customization": true,
     "lts": true,
     "rollingRelease": false,
@@ -192,11 +257,16 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/zorin_os.png",
-    "quote": "Zorin OS is the alternative to Windows and macOS designed to make your computer faster, more powerful, secure, and privacy respecting.",
-    "link": "https://zorinos.com/"
+    "quote": "zorin os is the alternative to windows and macos designed to make your computer faster, more powerful, secure, and privacy respecting.",
+    "link": "https://zorinos.com/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   },
   {
-    "name": "MX Linux",
+    "name": "mx linux",
     "customization": true,
     "lts": false,
     "rollingRelease": false,
@@ -206,11 +276,16 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/mx_linux.png",
-    "quote": "MX Linux is a cooperative venture between the antiX and former MEPIS communities, using the best tools and talents from each distro.",
-    "link": "https://mxlinux.org/"
+    "quote": "mx linux is a cooperative venture between the antix and former mepis communities, using the best tools and talents from each distro.",
+    "link": "https://mxlinux.org/",
+    "isForGaming": true,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": false,
+    "prefersLightweightDE": true
   },
   {
-    "name": "elementary OS",
+    "name": "elementary os",
     "customization": false,
     "lts": true,
     "rollingRelease": false,
@@ -220,7 +295,12 @@
     "debianBased": true,
     "easyToUse": true,
     "image": "/elementary_os.png",
-    "quote": "elementary OS is a fast and open replacement for Windows and macOS. Focused on design and user experience.",
-    "link": "https://elementary.io/"
+    "quote": "elementary os is a fast and open replacement for windows and macos. focused on design and user experience.",
+    "link": "https://elementary.io/",
+    "isForGaming": false,
+    "isForDevelopment": true,
+    "isForCreativeWork": true,
+    "prefersModernDE": true,
+    "prefersLightweightDE": false
   }
 ]

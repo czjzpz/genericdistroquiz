@@ -1,10 +1,25 @@
-[
-      "Customization",
-      "LTS",
-      "Rolling release",
-      "Privacy and Security",
-      "Preinstalled Software",
-      "Libre",
-      "Debian(-like)",
-      "Easy"
-  ]
+{
+  "use case": {
+    "isForGaming": "good for gaming?",
+    "isForDevelopment": "good for development?",
+    "isForCreativeWork": "good for creative work?"
+  },
+  "desktop style": {
+    "prefersModernDE": "offers modern desktop?",
+    "prefersLightweightDE": "offers lightweight desktop?"
+  },
+  "software & updates": {
+    "rollingRelease": "rolling release?",
+    "lts": "long-term support?",
+    "libre": "fully 'libre' software?",
+    "preinstalledTools": "many preinstalled tools?"
+  },
+  "ease & customization": {
+    "easyToUse": "easy to use?",
+    "customization": "highly customizable?",
+    "debianBased": "based on debian?"
+  },
+  "focus": {
+    "securityPrivacy": "strong security/privacy focus?"
+  }
+}
