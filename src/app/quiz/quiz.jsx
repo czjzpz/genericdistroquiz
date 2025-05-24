@@ -14,8 +14,8 @@ export default function Quiz() {
   
       return (
     
-        <div className="m-5 h-1/2 w-3/4 bg-neutral-200 rounded-lg border-[1px] border-neutral-300 flex justify-center items-center">
-          <div className="text-xl md:text-3xl font-bold text-center">
+        <div className="m-6 md:m-8 p-6 md:p-8 h-auto w-3/4 bg-slate-100 rounded-xl shadow-lg flex justify-center items-center">
+          <div className="text-2xl md:text-4xl font-semibold text-gray-700 text-center">
             {props.question}
           </div>
         </div>
@@ -30,8 +30,8 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with yest
-        <button onClick={() => nextQuestion(true, props.value)} className="m-1 h-full w-3/4 bg-blue-400 hover:bg-blue-500 rounded-lg border-[1px] border-blue-500 hover:border-blue-600 flex justify-center items-center">
-          <div className="text-lg text-neutral-800">
+        <button onClick={() => nextQuestion(true, props.value)} className="m-1 h-full w-2/5 bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:ring-sky-300 rounded-lg flex justify-center items-center">
+          <div className="text-lg font-medium text-white">
             {props.text}
           </div>
         </button>
@@ -46,8 +46,8 @@ export default function Quiz() {
       return (
         
         // after clicked triggers nextQuestion with no
-        <button onClick={() => nextQuestion(false, props.value)} className="m-1 h-full w-3/4 bg-blue-400 hover:bg-blue-500 rounded-lg border-[1px] border-blue-500 hover:border-blue-600 flex justify-center items-center">
-          <div className="text-lg text-neutral-800">
+        <button onClick={() => nextQuestion(false, props.value)} className="m-1 h-full w-2/5 bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 rounded-lg flex justify-center items-center">
+          <div className="text-lg font-medium text-white">
           {props.text}
           </div>
         </button>
@@ -170,9 +170,9 @@ export default function Quiz() {
   
       // main ui
       return (
-        <div className="flex flex-col justify-center items-center h-full w-full"> 
+        <div className="flex flex-col justify-center items-center h-full w-full p-4"> 
           <QuestionBlock question={questions[i].question}/>
-          <div className="h-10 w-3/4 flex ">
+          <div className="h-12 md:h-14 w-3/4 flex justify-around items-center mt-4">
             <YesBlock text={questions[i].yes} value={questions[i].value}/>
             <NoBlock text={questions[i].no} value={questions[i].value}/>
           </div>

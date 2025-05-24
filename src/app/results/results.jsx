@@ -21,10 +21,8 @@ export default function Results() {
     
       return (
     
-        <Link href={"/quiz"} className="m-3 h-30 w-fit p-1 bg-blue-400 hover:bg-blue-500 rounded-lg border-[1px] border-blue-500 hover:border-blue-600 flex justify-center items-center">
-          <div className="text-lg text-neutral-800">
+        <Link href={"/quiz"} className="m-6 p-3 px-6 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg shadow-md flex justify-center items-center">
           Try Again
-          </div>
         </Link>
     
       );
@@ -49,40 +47,38 @@ export default function Results() {
   
       return (
     
-        <div className="m-3 h-full md:h-[90%] w-[90%] md:w-[60%] bg-neutral-200 rounded-lg border-[1px] border-neutral-300 flex flex-col justify-center items-center">
-          <Link href={props.link} className="text-xl md:text-3xl m-5 text-center text-neutral-700 hover:text-neutral-900">
+        <div className="m-4 md:m-6 p-6 bg-slate-100 rounded-xl shadow-lg w-full max-w-md flex flex-col items-center">
+          <Link href={props.link} className="text-2xl md:text-3xl font-bold text-sky-600 hover:text-sky-700 mb-3 text-center">
             {props.name}
           </Link>
-          <div className="flex justify-center items-center">
-          <img src={props.img} alt="distro logo" className="max-h-[15rem] max-w-[10rem] md:max-h-[5rem] md:max-w-[5rem] lg:max-h-[10rem] lg:max-w-[10rem]"/>
-          </div>
-          <p className="m-5 text-lg text-center">
+          <img src={props.img} alt={`${props.name} logo`} className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 rounded-md"/>
+          <p className="text-gray-700 italic mb-4 text-center">
             {props.quote}
           </p>
-          <div className="grid grid-cols-3 grid-rows-1 p-1 w-[90%] md:w-[70%] justify-center items-center">
-            <div className="row-start-1 col-start-1 mt-2 flex flex-col justify-center items-end h-full w-full">
-            {/* For every question, put it out */}
-            {questions.map((question, index) => (
-              <div key={index} className="text-sm">{question}</div>
-            ))}
-            </div>
-            <div className="text-sm row-start-1 col-start-2 flex flex-col justify-center items-center">
-            Your choices:
-            <div className="flex flex-col">
-            {/* For every answer, put it out based on the order of keys in userAnswers */}
-            {props.userAnswers && Object.keys(props.userAnswers).map(key => (
-              <bold key={key}>{ifTrue(props.userAnswers[key])}</bold>
-            ))}
-            </div>
-            </div>
-            <div className="text-sm row-start-1 col-start-3 flex flex-col justify-center items-center">
-            Distro choices:
-            <div className="flex flex-col">
-            {/* For every answer, put it out based on the order of keys in userAnswers, accessing value from props.choice */}
-            {props.userAnswers && Object.keys(props.userAnswers).map(key => (
-              <bold key={key}>{ifTrue(props.choice[key])}</bold>
-            ))}
-            </div>
+          <div className="w-full bg-white p-4 rounded-lg shadow">
+            <div className="flex justify-between">
+              <div className="w-1/2 pr-2">
+                <h4 className="font-semibold text-gray-600 mb-2 text-center">Your Choices</h4>
+                {questions.map((question, index) => (
+                  <div key={index} className="flex justify-between items-center mb-1">
+                    <span className="text-sm text-gray-600">{question}</span>
+                    <span className="text-lg">
+                      {props.userAnswers && ifTrue(props.userAnswers[Object.keys(props.userAnswers)[index]])}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="w-1/2 pl-2 border-l border-gray-300">
+                <h4 className="font-semibold text-gray-600 mb-2 text-center">Distro Choices</h4>
+                {questions.map((question, index) => (
+                  <div key={index} className="flex justify-between items-center mb-1">
+                    <span className="text-sm text-gray-600">{question}</span>
+                    <span className="text-lg">
+                      {props.choice && ifTrue(props.choice[Object.keys(props.userAnswers)[index]])}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -92,16 +88,15 @@ export default function Results() {
     }
   
       return (
-        <div className="flex justify-center items-center h-full w-full overflow-scroll"> 
-          <div className="flex md:flex-col flex-col justify-start items-center h-full w-full">
+        <div className="flex flex-col items-center h-full w-full overflow-y-auto p-4 md:p-6"> 
+          <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center items-center md:items-start w-full">
           {distroObject0 && <DistroBlock name={distroObject0.name} img={distroObject0.image} quote={distroObject0.quote} link={distroObject0.link} choice={distroObject0} userAnswers={answers}/>}
           {distroObject1 && <DistroBlock name={distroObject1.name} img={distroObject1.image} quote={distroObject1.quote} link={distroObject1.link} choice={distroObject1} userAnswers={answers}/>}
           {distroObject2 && <DistroBlock name={distroObject2.name} img={distroObject2.image} quote={distroObject2.quote} link={distroObject2.link} choice={distroObject2} userAnswers={answers}/>}
-          <div className="flex justify-center items-center">
+          </div>
+          <div className="flex justify-center items-center mt-4">
             <AgainBlock/>
           </div>
-          </div>
-          
         </div>
         
       );
